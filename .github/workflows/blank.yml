@@ -19,7 +19,7 @@ concurrency:
 jobs:
   # This workflow contains a single job called "build"
   bug:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'bug')  || github.event_name == 'workflow_dispatch' }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -34,7 +34,7 @@ jobs:
           echo bug
           
   info:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'info')  || github.event_name == 'workflow_dispatch' }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'info') }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
