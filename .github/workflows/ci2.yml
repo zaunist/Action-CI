@@ -20,6 +20,7 @@ jobs:
   # This workflow contains a single job called "build"
   release:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'release') ||
+            contains(github.event.pull_request.labels.*.name, 'all') ||
             github.ref == 'refs/heads/main'}}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -36,6 +37,7 @@ jobs:
           
   lint:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'lint') ||
+            contains(github.event.pull_request.labels.*.name, 'all') ||
             github.ref == 'refs/heads/main'}}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
